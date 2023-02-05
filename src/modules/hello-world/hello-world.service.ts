@@ -8,6 +8,6 @@ export class HelloWorldService {
   }
 
   setHelloWorld(helloWorldDto: HelloWorldDto): string {
-    return helloWorldDto.text;
+    return `From: ${helloWorldDto.greeting.sender.name}, greeting: ${helloWorldDto.greeting.text}`;
   }
 }
