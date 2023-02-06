@@ -3,6 +3,7 @@ import { NestFactory } from '@nestjs/core';
 
 import { AppModule } from './app.module';
 import { HttpExceptionFilter } from './http-exception.filter';
+import { LoggingInterceptor } from './logging.interceptor';
 import { ValidationPipe } from './validation.pipe';
 
 export function useMiddleware(app: INestApplication): INestApplication {
@@ -22,9 +23,14 @@ export function useMiddleware(app: INestApplication): INestApplication {
   app.useGlobalPipes(new ValidationPipe());
 
   /**
-   * ... and give it some finesse!
+   * ...give it some finesse,
    */
   app.useGlobalFilters(new HttpExceptionFilter());
+
+  /**
+   * ... and add a pinch of superpowers!
+   */
+  app.useGlobalInterceptors(new LoggingInterceptor());
 
   return app;
 }

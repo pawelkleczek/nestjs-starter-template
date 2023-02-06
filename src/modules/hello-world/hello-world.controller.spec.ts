@@ -16,7 +16,7 @@ describe('PostController', () => {
 
   describe('root', () => {
     it('should return "Hello World!"', () => {
-      expect(helloWorldController.getHelloWorld()).toBe('Hello World!');
+      expect(helloWorldController.getHelloWorld()).toBe('Hello, World!');
     });
   });
 });
